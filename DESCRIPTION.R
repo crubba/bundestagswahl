@@ -1,0 +1,11 @@
+Package: bundestagswahl
+Title: Data from German federal elections, 1949-2013
+Version: 0.1
+Authors@R: 'Christian Rubba <christian.rubba@gmail.com> [aut,cre]'
+Description: Data from German federal elections (1949-2013), including district-
+  level voting results, candidate names, electoral maps.
+Depends:
+  R (>= 3.1.0)
+License: CC0
+LazyData: true
+URL: http://github.com/crubba/bundestagswahl
