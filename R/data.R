@@ -1,8 +1,7 @@
 #' Votes.
 #'
 #' Complete data on German Bundestag elections form 1949 to 2013
-#'
-#' @format A data frame with seve variables: 
+#' @format A data frame with seven variables: 
 #' \describe{
 #' \item{\code{year}}{year of the election}
 #' \item{\code{bundesland}}{the Bundesland of the \code{district}}
@@ -20,7 +19,7 @@
 #' only available from 1980 onward.
 #'
 #' @format A data frame with 18 variables:
-#' #' \describe{
+#' \describe{
 #' \item{\code{year}}{year of the election}
 #' \item{\code{wp}}{numeric information on the legislative period}
 #' \item{\code{bundesland}}{the Bundesland in which the candidate applied}
@@ -89,5 +88,5 @@
 #' \item{\code{year}}{year of the election}
 #' \item{\code{wp}}{the legislative period}
 #' }
-"bt_districts_neighbors"
+"bt_districts_maps"
 
