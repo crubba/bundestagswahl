@@ -4,10 +4,9 @@ This R package contains data sets on German parliamentary elections, from 1949 t
 - Electoral results, including candidate and party votes (*bt_votes*)
 - Candidate information (*bt_candidates*)
 - District information
-  1. Geographical information. *bt_districts_neighbors* contains information about 
-  the closeness of electoral districts, *bt_districts* contains structural information
-  for electoral districts
-  2. Map information in a polygon format are saved in *bt_districts_maps*
+  1. Geographical information. Information about the geographical closeness of electoral districts (*bt_districts_neighbors*), structural information (*bt_districts*)
+  of electoral districts
+  2. Map information in a polygon format (*bt_districts_maps*)
 
 The information was compiled from open information. The associated scripts have   [https://github.com/crubba/Project-Bundestag](on this Github repo). Comma-separated files can be downloaded from [here](http://www.christianrubba.com/projects/projects.html#bundestagswahl).
 
@@ -33,7 +32,7 @@ data(bt_districts)
 data(bt_districts_maps)
 ```
 
-# Example
+## Example
 
 ```r
 library(dplyr)
@@ -44,19 +43,16 @@ bt_votes_spd <- filter(bt_votes, party == "SPD")
 gg_df <- left_join(bt_districts_maps, bt_votes_spd, 
 by = c("year" = "year", "wk" = "wk"))
 
-ggplot(data = gg_df, aes(x = long, y = lat, id = wk, fill = per)) + 
-  geom_polygon() + facet_wrap(~year) +
+ggplot(data = gg_df, aes(x = long, y = lat, group = wk, fill = per)) + 
+  geom_polygon(colour = NA) + 
+  facet_wrap(~year, ncol = 4) +
   ggtitle("SPD vote shares, 1949-2013") +
+  scale_fill_gradient(low = "white", high = "#660000") +
   theme_cr_map()
 ```
 
 ![](README_files/figure-html/unnamed-chunk-3-1.png) 
 
-
-# Helper scripts
-Alongside the data, the package also provides convenience functions for producing data frames that are suitable for certain kinds of statistical analysis
-
-- big merge
 
 # License
 
