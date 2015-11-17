@@ -1,3 +1,4 @@
+
 # About
 This R package contains data sets on German parliamentary elections, from 1949 to 2013. It comprises three seperate data sets: 
 
@@ -8,7 +9,7 @@ This R package contains data sets on German parliamentary elections, from 1949 t
   of electoral districts
   2. Map information in a polygon format (*bt_districts_maps*)
 
-The information was compiled from open information. The associated scripts have   [https://github.com/crubba/Project-Bundestag](on this Github repo). Comma-separated files can be downloaded from [here](http://www.christianrubba.com/projects/projects.html#bundestagswahl).
+Comma-separated/JSON files can be downloaded from [here](http://www.christianrubba.com/projects/projects.html#bundestagswahl).
 
 # Installation & Usage
 The package can be installed from this Github repository:
@@ -23,13 +24,13 @@ To access the data in R type:
 
 
 ```r
-library(bundestagswahl)
+library("bundestagswahl")
 
-data(bt_votes)
-data(bt_candidates)
-data(bt_districts_neighbors)
-data(bt_districts)
-data(bt_districts_maps)
+data("bt_votes")
+data("bt_candidates")
+data("bt_districts_neighbors")
+data("bt_districts")
+data("bt_districts_maps")
 ```
 
 ## Example
@@ -39,29 +40,33 @@ library(dplyr)
 library(ggplot2)
 library(crmisc)
 
-bt_votes_spd <- filter(bt_votes, party == "SPD")
-gg_df <- left_join(bt_districts_maps, bt_votes_spd, 
-by = c("year" = "year", "wk" = "wk"))
+districts1987 <- subset(bt_districts_maps, year == 1987)
+bt_votes_spd <- filter(bt_votes, party == "SPD", year == 1987, mandate == "pvote") %>%
+  select(., year, wk,  per)
 
-ggplot(data = gg_df, aes(x = long, y = lat, group = wk, fill = per)) + 
-  geom_polygon(colour = NA) + 
-  facet_wrap(~year, ncol = 4) +
-  ggtitle("SPD vote shares, 1949-2013") +
+gg_df <- left_join(districts1987, bt_votes_spd, 
+                   by = c("year" = "year", "wk" = "wk"))
+gg_df$groupid <- paste(gg_df$wk, gg_df$part)
+
+ggplot(data = gg_df, aes(x = long, y = lat, group = groupid, fill = per)) + 
+  geom_polygon(colour = "white", size = 0.1) + 
+  ggtitle("Party vote shares for SPD in 1987") +
   scale_fill_gradient(low = "white", high = "#660000") +
-  theme_cr_map()
+  xlab("") + ylab("") +
+  theme_cr_map() + 
+  theme(legend.text = element_text(size = 8),
+        panel.border = element_blank(),
+        panel.background = element_rect(fill = "#E8E8E8", colour = NA))
 ```
 
 ![](README_files/figure-html/unnamed-chunk-3-1.png) 
 
-
-# License
-
 # Citation
-If you use the datasets provided through this package, please consider citing it. Once installed, type
+If you use the datasets provided through this package, please consider citing it. To receive citing information type:
 
 
 ```r
 citation("bundestagswahl")
 ```
 
-to receive citation information.
+
