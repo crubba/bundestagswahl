@@ -90,21 +90,12 @@
 
 #' District information.
 #'
-#' Demographic and social information on Bundestag districts
+#' Demographic and social information on Bundestag districts. 
+#' Mostly from 1980 onwards.
 #'
 #' @docType data
 #' @keywords datasets
 #' @name btw_districts
 #' @usage data(btw_districts)
-#' @format A data frame with nine variables:
-#' \describe{
-#' \item{\code{year}}{the election year}
-#' \item{\code{bundesland}}{Bundesland of the district}
-#' \item{\code{district}}{the district name}
-#' \item{\code{wk}}{the district number}
-#' \item{\code{part}}{running index for subareas of districts (e.g. islands)}
-#' \item{\code{long}}{longitudional info}
-#' \item{\code{lat}}{latidutional info}
-#' }
 #' @source \url{http://www.bundeswahlleiter.de/en/}
 "btw_districts"

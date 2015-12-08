@@ -4,16 +4,7 @@
 \name{btw_districts}
 \alias{btw_districts}
 \title{District information.}
-\format{A data frame with nine variables:
-\describe{
-\item{\code{year}}{the election year}
-\item{\code{bundesland}}{Bundesland of the district}
-\item{\code{district}}{the district name}
-\item{\code{wk}}{the district number}
-\item{\code{part}}{running index for subareas of districts (e.g. islands)}
-\item{\code{long}}{longitudional info}
-\item{\code{lat}}{latidutional info}
-}}
+\format{An object of class \code{data.frame} with 4904 rows and 68 columns.}
 \source{
 \url{http://www.bundeswahlleiter.de/en/}
 }
@@ -21,7 +12,8 @@
 data(btw_districts)
 }
 \description{
-Demographic and social information on Bundestag districts
+Demographic and social information on Bundestag districts. 
+Mostly from 1980 onwards.
 }
 \keyword{datasets}
 
