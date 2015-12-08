@@ -10,7 +10,7 @@ This R package contains data sets on German parliamentary elections, from 1949 t
   of electoral districts
   2. District maps in polygon format (*btw_districts_maps*)
 
-Comma-separated/JSON files can be downloaded from [here](http://www.christianrubba.com/projects/projects.html#bundestagswahl).
+Comma-separated/JSON files can be downloaded from here.
 
 # Installation & Usage
 The package can be installed from this Github repository:
