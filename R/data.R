@@ -3,28 +3,33 @@
 #' Complete data on German Bundestag elections form 1949 to 2013
 #' @docType data
 #' @keywords datasets
-#' @name bt_votes
-#' @usage data(bt_votes)
+#' @name btw_votes
+#' @usage data(btw_votes)
 #' @format A data frame with 47840 rows and seven variables: 
 #' \describe{
 #' \item{\code{year}}{year of the election}
 #' \item{\code{bundesland}}{the Bundesland of the \code{district}}
 #' \item{\code{district}}{the district name}
 #' \item{\code{wk}}{the district number}
-#' \item{\code{mandate}}{type of mandate, cvote = Candidate Vote, pvote = Party Vote}
 #' \item{\code{party}}{the party name}
-#' \item{\code{per}}{the percentage of votes for the \code{party}}
+#' \item{\code{mandate}}{type of mandate, cvote = Candidate Vote, pvote = Party Vote}
+#' \item{\code{per}}{the percentage of votes for the \code{party}, NA means party did not 
+#' run a candidate or a party list}
 #' }
 #' @source \url{http://www.bundeswahlleiter.de/en/}
 #' @details In the 1949 election both tiers were merged into a single vote. In the dataset this vote is registered as the party vote
-"bt_votes"
+#' In 1957 CDU and CSU ran separately in newly annexed Saarland. Here, CSU receives as CSU/CVP label.
+"btw_votes"
 
 #' Candidates.
 #'
 #' Information on candidates in Bundestag elections. Currently, information are
 #' only available from 1980 onward.
 #'
-#' @usage data(bt_candidates)
+#' @docType data
+#' @keywords datasets
+#' @name btw_candidates
+#' @usage data(btw_candidates)
 #' @format A data frame with 18 variables:
 #' \describe{
 #' \item{\code{year}}{year of the election}
@@ -46,23 +51,13 @@
 #' \item{\code{mdb}}{was candidate member of the Bundestag before?}
 #' }
 #' @source \url{http://www.bundeswahlleiter.de/en/} + self compiled from various sources
-"bt_candidates"
+"btw_candidates"
 
-#' District information
-#'
-#' Demographic and social information on Bundestag districts
-#'
-#' @usage data(bt_districts)
-#' @format A data frame with nine variables:
-#' @source \url{http://www.bundeswahlleiter.de/en/} 
-#'
-"bt_districts"
-
-#' Adjacent districts
+#' Adjacent districts.
 #'
 #' Closeness of Bundestag districts
 #'
-#' @usage data(bt_districts_neighbors)
+#' @usage data(btw_districts_neighbors)
 #' @format A data frame:
 #' \describe{
 #' \item{\code{id}}{number for district 1}
@@ -71,22 +66,45 @@
 #' \item{\code{year}}{year of the election}
 #' \item{\code{wp}}{the legislative period}
 #' }
-"bt_districts_neighbors"
+"btw_districts_neighbors"
 
 
-#' District Maps
+#' District Maps.
 #'
 #' Maps of Bundestag districts
 #'
-#' @usage data(bt_districts_maps)
-#' @format A data frame with 6 variables:
+#' @usage data(btw_districts_maps)
+#' @format A data frame with seven variables:
 #' \describe{
 #' \item{\code{year}}{the election year}
+#' \item{\code{bundesland}}{Bundesland of the district}
 #' \item{\code{district}}{the district name}
 #' \item{\code{wk}}{the district number}
+#' \item{\code{part}}{running index for subareas of districts (e.g. islands)}
 #' \item{\code{long}}{longitudional info}
 #' \item{\code{lat}}{latidutional info}
 #' }
 #' @details Polygon format
-"bt_districts_maps"
+"btw_districts_maps"
 
+
+#' District information.
+#'
+#' Demographic and social information on Bundestag districts
+#'
+#' @docType data
+#' @keywords datasets
+#' @name btw_districts
+#' @usage data(btw_districts)
+#' @format A data frame with nine variables:
+#' \describe{
+#' \item{\code{year}}{the election year}
+#' \item{\code{bundesland}}{Bundesland of the district}
+#' \item{\code{district}}{the district name}
+#' \item{\code{wk}}{the district number}
+#' \item{\code{part}}{running index for subareas of districts (e.g. islands)}
+#' \item{\code{long}}{longitudional info}
+#' \item{\code{lat}}{latidutional info}
+#' }
+#' @source \url{http://www.bundeswahlleiter.de/en/}
+"btw_districts"

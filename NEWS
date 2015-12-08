@@ -1,4 +1,13 @@
 # -------------------
+CHANGES IN bundestagswahl VERSION 0.3.0
+
+o Test suites for almost all data sets
+o Removed errors in district maps (due to wrong parsing)
+o Smaller fixes in district neighbors data set
+o Renamed data sets (bt_ -> btw_)
+
+
+# -------------------
 CHANGES IN bundestagswahl VERSION 0.1.0
 
 o Public release
