@@ -9,7 +9,7 @@ This R package contains data sets on German parliamentary elections, from 1949 t
   2. Information about structural characteristics of electoral districts (*btw_districts*)
   2. District maps in polygon format (*btw_districts_maps*)
 
-Comma-separated/JSON files can be downloaded from here.
+Comma-separated/JSON files will be published in the near future.
 
 # Installation & Usage
 The package can be installed from this Github repository:
@@ -67,7 +67,7 @@ ggplot(data = gg_df, aes(x = long, y = lat, group = groupid, fill = per)) +
         panel.grid.minor = element_blank())
 ```
 
-![](README_files/figure-html/unnamed-chunk-3-1.png) 
+![](README_files/figure-html/unnamed-chunk-3-1.png)
 
 # Citation
 If you use the datasets provided through this package, please consider citing it. To receive citing information type:
