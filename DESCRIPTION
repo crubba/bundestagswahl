@@ -1,7 +1,7 @@
 Package: bundestagswahl
 Title: Data from German federal elections, 1949-2013
 Version: 0.3.0
-Date: 2015-12-14
+Date: 2016-01-27
 Authors@R: 'Christian Rubba <r@christianrubba.com> [aut,cre]'
 Description: Data from German federal elections (1949-2013), including
     information on district-level voting results, district structure, candidates 
