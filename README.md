@@ -1,6 +1,6 @@
 
 # About
-This R package contains data sets on German parliamentary elections, from 1949 to 2013. It comprises five separate data sets: 
+This R package contains datasets on German federal, parliamentary elections, from 1949 to 2013. It comprises five separate datasets: 
 
 - Electoral results, including candidate and party votes (*btw_votes*)
 - Candidate information (*btw_candidates*)
@@ -34,19 +34,24 @@ data("btw_districts_maps")
 ```
 
 ## Example
+This example illustrates how to create a map of party vote shares:
+
 
 ```r
 library("dplyr")
 library("ggplot2")
 
+# Subsetting and merging maps and votes datasets
 districts1987 <- subset(btw_districts_maps, year == 1987)
 btw_votes_spd <- filter(btw_votes, party == "SPD", year == 1987, mandate == "pvote") %>%
   select(., year, wk,  per)
-
 gg_df <- left_join(districts1987, btw_votes_spd, 
                    by = c("year" = "year", "wk" = "wk"))
+
+# Creating a unique district identifier (necessary since some districts are composites of multiple, disconnected polygons)
 gg_df$groupid <- paste(gg_df$wk, gg_df$part)
 
+# Plotting
 ggplot(data = gg_df, aes(x = long, y = lat, group = groupid, fill = per)) + 
   geom_polygon(colour = "white", size = 0.1) + 
   scale_fill_gradient(low = "white", high = "#660000") +
